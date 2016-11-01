@@ -1,5 +1,5 @@
 ---
-# test
+
 resources:
 - name: concourse-app
   type: git
