@@ -4,31 +4,14 @@ resources:
 - name: concourse-app
   type: git
   source:
-    uri: https://github.com/robertke/concourse-tutorial
+    uri: https://github.com/italolelis/concourse-tutorial
 
 jobs:
 - name: unit-test
-  public: true
   serial: true
   plan:
   - get: concourse-app
     trigger: true
 
   - task: unit test
-    config:
-        platform: linux
-
-        image_resource:
-            type: docker-image
-            source: {repository: golang, tag: "1"}
-
-        run:
-            path: sh
-            args:
-            - -exc
-            - |
-                cd concourse-app
-                make deps
-                make test
-        inputs:
-        - name: concourse-app
+    file: concourse-app/ci/tasks/unit-tests.yml
