@@ -4,7 +4,7 @@ resources:
 - name: concourse-app
   type: git
   source:
-    uri: https://github.com/italolelis/concourse-tutorial
+    uri: https://github.com/robertke/concourse-tutorial
 
 jobs:
 - name: unit-test
